@@ -1,0 +1,82 @@
+<script type="text/javascript">
+    let negative = 0;
+    let balls = [];
+        
+        function calculate() {
+            let count = 0
+           balls.forEach(ball => {
+               if(ball == 0) {
+                count = count - 1
+               } else {
+                count = count + 1
+               }
+           });
+           $('#sp2').hide()
+        //    console.log(count)
+           bake()
+        }
+        function start() {
+            balls = []
+            let v1 = cook($('#v1').val(),1)
+            let v2 = cook($('#v2').val(),2)
+            balls = cookBalls(v1,v2)
+            renderBalls(balls,1)
+        }
+
+        function cook(v,i) {
+            if(v < 0) {
+                console.error('Negative Value : '+ v)
+                negative = i
+                v = v * -1
+                return v
+            } else {
+                return v
+            } 
+        }
+
+        function cookBalls(v1,v2) {
+            let b = []
+            if(negative == 1) {
+                arrayFeed(v1,0)
+                arrayFeed(v2,1)
+                return balls
+            } else if(negative == 2) {
+                arrayFeed(v2,0)
+                arrayFeed(v1,1)
+                return balls
+            } else {
+                console.error('Negative Not Set')
+                arrayFeed(0,0)
+            }
+        }
+
+        function arrayFeed(value,sign) {
+            for (let index = 0; index < value; index++) {
+                balls.push(sign)               
+            }
+            return balls
+        }
+
+        function renderBalls(a,i) {
+            $('#ballList').html('')
+            let count = 0
+            a.forEach(e => {
+                if (e == 0) {
+                    $('#ballList').append('<span class="dot red" id="sp'+count+'">'+count+'</span>')
+                } else {
+                    $('#ballList').append('<span class="dot green" id="sp'+count+'">'+count+'</span>')
+                }
+                count++
+            });
+        }
+
+        function bake() {
+            $('#ballList').find('span').each(function(){
+                var innerDivId = $(this).attr('id');
+                $(innerDivId).hide()
+                console.log(innerDivId)
+            });
+            // $('#ballList').html('')
+        }
+    
+    </script>

@@ -1,0 +1,43 @@
+/* Others */
+html,body, #area {
+    height: 100%;
+    margin: 0;
+}
+
+/* p,h1,h2,h3,h4,h5,h6,a {
+    color: white;
+} */
+
+#area {
+    background: #FF512F;
+    background: -webkit-linear-gradient(to right, #DD2476, #FF512F);
+    background: linear-gradient(to right, #DD2476, #FF512F);
+}
+
+/* Game Styles */
+.dot {
+    height: 50px;
+    width: 50px;
+    margin: 5px 5px 5px 5px;
+    border-radius: 50%;
+    display: inline-block;
+}
+img {
+    height: 75px;
+    width: 70px;
+    margin: 5px 5px 5px 5px;
+}
+.red  { 
+    background-color: rgba(245, 8, 8, 0.993);
+    
+}
+.green {
+    background-color: rgba(0, 255, 157, 0.691);
+}
+
+.blue {
+    background-color: rgba(0, 0, 157, 0.691);
+}
+.yellow {
+    background-color: rgba(157, 147, 0, 0.691);
+}
